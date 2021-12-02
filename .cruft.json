@@ -1,15 +1,18 @@
 {
   "template": "https://github.com/iterative/cookiecutter-dvc-plugin",
-  "commit": "48e1535cbab2bc64ef84a3a5be00ba9787b265b2",
+  "commit": "c009537ded8c610f91a289499037e91843ec605f",
   "checkout": null,
   "context": {
     "cookiecutter": {
       "plugin_name": "oss",
+      "_copy_without_render": [
+        ".github/workflows/tests.yaml"
+      ],
       "_template": "https://github.com/iterative/cookiecutter-dvc-plugin"
     }
   },
   "directory": null,
   "skip": [
-        ".git"
+    ".git"
   ]
 }
