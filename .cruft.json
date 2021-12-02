@@ -1,0 +1,12 @@
+{
+  "template": "https://github.com/iterative/cookiecutter-dvc-plugin",
+  "commit": "48e1535cbab2bc64ef84a3a5be00ba9787b265b2",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "plugin_name": "oss",
+      "_template": "https://github.com/iterative/cookiecutter-dvc-plugin"
+    }
+  },
+  "directory": null
+}
