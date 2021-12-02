@@ -3,9 +3,8 @@ import os
 import uuid
 
 import pytest
-
-from dvc.testing.fixtures import *  # noqa, pylint: disable=wildcard-import,unused-import
 from dvc.testing.cloud import Cloud
+from dvc.testing.fixtures import *  # noqa, pylint: disable=wildcard-import,unused-import
 from dvc.testing.path_info import CloudURLInfo
 from dvc.utils import env2bool
 
@@ -121,6 +120,7 @@ def make_real_oss():
 def make_oss(make_real_oss):
     return make_real_oss
 
+
 @pytest.fixture
 def oss(real_oss):
     # FIXME: this should use emulator
@@ -130,4 +130,3 @@ def oss(real_oss):
 @pytest.fixture
 def real_oss(make_real_oss):
     return make_real_oss()
-

@@ -8,4 +8,3 @@ from dvc.testing.test_remote import (  # noqa, pylint: disable=unused-import
 @pytest.fixture
 def remote(make_remote):
     yield make_remote(name="upstream", typ="oss")
-
