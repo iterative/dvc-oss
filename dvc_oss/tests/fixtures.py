@@ -1,4 +1,6 @@
 # pylint:disable=abstract-method
+import os
+
 import pytest
 
 from .cloud import OSS, TEST_OSS_REPO_BUCKET
@@ -6,6 +8,11 @@ from .cloud import OSS, TEST_OSS_REPO_BUCKET
 EMULATOR_OSS_ENDPOINT = "127.0.0.1:{port}"
 EMULATOR_OSS_ACCESS_KEY_ID = "AccessKeyID"
 EMULATOR_OSS_ACCESS_KEY_SECRET = "AccessKeySecret"
+
+
+@pytest.fixture(scope="session")
+def docker_compose_file(pytestconfig):
+    return os.path.join(os.path.dirname(__file__), "docker-compose.yml")
 
 
 @pytest.fixture(scope="session")
