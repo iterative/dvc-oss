@@ -2,9 +2,8 @@ import logging
 import os
 import threading
 
-from funcy import cached_property, wrap_prop
-
 from dvc_objects.fs.base import ObjectFileSystem
+from funcy import cached_property, wrap_prop
 
 logger = logging.getLogger(__name__)
 
