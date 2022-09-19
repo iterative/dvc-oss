@@ -5,16 +5,9 @@
   "context": {
     "cookiecutter": {
       "plugin_name": "oss",
-      "_copy_without_render": [
-        ".github/workflows/tests.yaml",
-        ".github/workflows/update-template.yaml",
-        ".github/workflows/release.yaml"
-      ],
       "_template": "https://github.com/iterative/cookiecutter-dvc-plugin"
     }
   },
   "directory": null,
-  "skip": [
-    ".git"
-  ]
+  "skip": [".git"]
 }
