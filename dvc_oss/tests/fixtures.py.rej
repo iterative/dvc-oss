@@ -1,0 +1,6 @@
+diff a/dvc_oss/tests/fixtures.py b/dvc_oss/tests/fixtures.py	(rejected hunks)
+@@ -19,4 +19,3 @@ def make_oss():
+ @pytest.fixture
+ def oss(make_oss):
+     return make_oss()
+-
