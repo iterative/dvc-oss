@@ -16,7 +16,9 @@ def docker_compose_file(pytestconfig):
 
 
 @pytest.fixture(scope="session")
-def oss_server(docker_compose, docker_services):
+def oss_server(
+    docker_compose, docker_services  # pylint: disable=unused-argument
+):
     import oss2
 
     port = docker_services.port_for("oss", 8880)
