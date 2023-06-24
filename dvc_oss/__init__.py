@@ -29,7 +29,7 @@ class OSSFileSystem(ObjectFileSystem):
     @wrap_prop(threading.Lock())
     @cached_property
     def fs(self):
-        from ossfs import OSSFileSystem as _OSSFileSystem
+        from ossfs import AioOSSFileSystem as _OSSFileSystem
 
         return _OSSFileSystem(**self.fs_args)
 
