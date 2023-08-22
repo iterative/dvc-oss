@@ -42,6 +42,7 @@ jobs:
         pip install --upgrade pip wheel
         pip install -e ".[tests]"
         pip install "dvc[testing] @ git+https://github.com/iterative/dvc"
+        pip install "ossfs @ git+https://github.com/fsspec/ossfs@pop-callback"
 
     - name: lint
       timeout-minutes: 10
