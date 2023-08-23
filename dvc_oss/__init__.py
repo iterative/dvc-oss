@@ -2,8 +2,9 @@ import logging
 import os
 import threading
 
+from dvc.utils.objects import cached_property
 from dvc_objects.fs.base import ObjectFileSystem
-from funcy import cached_property, wrap_prop
+from funcy import wrap_prop
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +29,7 @@ class OSSFileSystem(ObjectFileSystem):
 
     @wrap_prop(threading.Lock())
     @cached_property
-    def fs(self):  # pylint: disable=invalid-overridden-method
+    def fs(self):
         from ossfs import AioOSSFileSystem as _OSSFileSystem
 
         return _OSSFileSystem(**self.fs_args)
