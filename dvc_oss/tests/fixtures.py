@@ -71,16 +71,16 @@ def make_real_oss():
 
 
 @pytest.fixture
-def make_oss(make_real_oss):  # pylint: disable-next=redefined-outer-name
+def make_oss(make_real_oss):  # pylint: disable=redefined-outer-name
     return make_real_oss
 
 
 @pytest.fixture
-def oss(real_oss):  # pylint: disable-next=redefined-outer-name
+def oss(real_oss):  # pylint: disable=redefined-outer-name
     # FIXME: this should use emulator
     return real_oss
 
 
 @pytest.fixture
-def real_oss(make_real_oss):  # pylint: disable-next=redefined-outer-name
+def real_oss(make_real_oss):  # pylint: disable=redefined-outer-name
     return make_real_oss()
