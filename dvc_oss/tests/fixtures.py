@@ -11,7 +11,7 @@ EMULATOR_OSS_ACCESS_KEY_SECRET = "AccessKeySecret"
 
 
 @pytest.fixture(scope="session")
-def docker_compose_file(pytestconfig):
+def docker_compose_file():
     return os.path.join(os.path.dirname(__file__), "docker-compose.yml")
 
 
@@ -71,16 +71,16 @@ def make_real_oss():
 
 
 @pytest.fixture
-def make_oss(make_real_oss):
+def make_oss(make_real_oss):  # pylint: disable-next=redefined-outer-name
     return make_real_oss
 
 
 @pytest.fixture
-def oss(real_oss):
+def oss(real_oss):  # pylint: disable-next=redefined-outer-name
     # FIXME: this should use emulator
     return real_oss
 
 
 @pytest.fixture
-def real_oss(make_real_oss):
+def real_oss(make_real_oss):  # pylint: disable-next=redefined-outer-name
     return make_real_oss()
