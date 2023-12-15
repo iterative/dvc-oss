@@ -1,3 +1,3 @@
 dvc-oss
 
-oss plugin for dvc
+Alibaba oss plugin for dvc
