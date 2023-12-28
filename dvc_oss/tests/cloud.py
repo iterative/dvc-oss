@@ -43,3 +43,9 @@ class OSS(Cloud, CloudURLInfo):
 
     def read_bytes(self):
         raise NotImplementedError
+
+    def unlink(self, missing_ok: bool = False) -> None:
+        raise NotImplementedError
+
+    def rmdir(self, recursive: bool = True) -> None:
+        raise NotImplementedError
