@@ -1,10 +1,12 @@
 import logging
 import os
 import threading
+from typing import ClassVar
+
+from funcy import wrap_prop
 
 from dvc.utils.objects import cached_property
 from dvc_objects.fs.base import ObjectFileSystem
-from funcy import wrap_prop
 
 logger = logging.getLogger(__name__)
 
@@ -12,15 +14,13 @@ logger = logging.getLogger(__name__)
 # pylint:disable=abstract-method
 class OSSFileSystem(ObjectFileSystem):
     protocol = "oss"
-    REQUIRES = {"ossfs": "ossfs"}
+    REQUIRES: ClassVar[dict[str, str]] = {"ossfs": "ossfs"}
     PARAM_CHECKSUM = "etag"
     LIST_OBJECT_PAGE_SIZE = 100
 
     def _prepare_credentials(self, **config):
         login_info = {}
-        login_info["key"] = config.get("oss_key_id") or os.getenv(
-            "OSS_ACCESS_KEY_ID"
-        )
+        login_info["key"] = config.get("oss_key_id") or os.getenv("OSS_ACCESS_KEY_ID")
         login_info["secret"] = config.get("oss_key_secret") or os.getenv(
             "OSS_ACCESS_KEY_SECRET"
         )

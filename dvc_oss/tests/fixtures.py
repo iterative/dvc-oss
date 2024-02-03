@@ -17,7 +17,8 @@ def docker_compose_file():
 
 @pytest.fixture(scope="session")
 def oss_server(
-    docker_compose, docker_services  # pylint: disable=unused-argument
+    docker_compose,
+    docker_services,  # pylint: disable=unused-argument
 ):
     import oss2
 
@@ -26,9 +27,7 @@ def oss_server(
 
     def _check():
         try:
-            auth = oss2.Auth(
-                EMULATOR_OSS_ACCESS_KEY_ID, EMULATOR_OSS_ACCESS_KEY_SECRET
-            )
+            auth = oss2.Auth(EMULATOR_OSS_ACCESS_KEY_ID, EMULATOR_OSS_ACCESS_KEY_SECRET)
             oss2.Bucket(auth, endpoint, "mybucket").get_bucket_info()
             return True
         except oss2.exceptions.NoSuchBucket:
@@ -49,20 +48,14 @@ def make_real_oss():
         url = OSS.get_url()
         ret = OSS(url)
 
-        auth = oss2.Auth(
-            ret.config["oss_key_id"], ret.config["oss_key_secret"]
-        )
-        bucket = oss2.Bucket(
-            auth, ret.config["oss_endpoint"], TEST_OSS_REPO_BUCKET
-        )
+        auth = oss2.Auth(ret.config["oss_key_id"], ret.config["oss_key_secret"])
+        bucket = oss2.Bucket(auth, ret.config["oss_endpoint"], TEST_OSS_REPO_BUCKET)
         try:
             bucket.get_bucket_info()
         except oss2.exceptions.NoSuchBucket:
             bucket.create_bucket(
                 oss2.BUCKET_ACL_PUBLIC_READ,
-                oss2.models.BucketCreateConfig(
-                    oss2.BUCKET_STORAGE_CLASS_STANDARD
-                ),
+                oss2.models.BucketCreateConfig(oss2.BUCKET_STORAGE_CLASS_STANDARD),
             )
 
         return ret
