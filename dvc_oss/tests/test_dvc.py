@@ -1,12 +1,13 @@
 import pytest
-from dvc.testing.api_tests import (  # noqa, pylint: disable=unused-import
+
+from dvc.testing.api_tests import (  # noqa: F401
     TestAPI,
 )
-from dvc.testing.remote_tests import (  # noqa, pylint: disable=unused-import
+from dvc.testing.remote_tests import (  # noqa: F401
     TestRemote,
 )
 
 
 @pytest.fixture
 def remote(make_remote):
-    yield make_remote(name="upstream", typ="oss")
+    return make_remote(name="upstream", typ="oss")

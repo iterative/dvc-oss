@@ -10,7 +10,6 @@ TEST_OSS_REPO_BUCKET = "dvc-test-github"
 
 
 class OSS(Cloud, CloudURLInfo):
-
     IS_OBJECT_STORAGE = True
 
     @staticmethod
