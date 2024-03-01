@@ -40,7 +40,7 @@ jobs:
     - name: install
       run: |
         pip install --upgrade pip wheel
-        pip install -e ".[tests]"
+        pip install -e ".[dev]"
         pip install "dvc[testing] @ git+https://github.com/iterative/dvc"
 
     - name: lint
