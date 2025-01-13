@@ -25,6 +25,10 @@ class OSS(Cloud, CloudURLInfo):
             "oss_endpoint": TEST_OSS_ENDPOINT,
         }
 
+    @property
+    def fs_path(self):
+        return self.bucket + "/" + self.path.lstrip("/")
+
     def is_file(self):
         raise NotImplementedError
 
