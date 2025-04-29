@@ -41,7 +41,7 @@ jobs:
         cache-dependency-glob: pyproject.toml
 
     - name: install
-      run: uv pip install -e ".[dev]" "dvc[testing] @ git+https://github.com/iterative/dvc" --system
+      run: uv pip install -e ".[dev]" "dvc[testing] @ git+https://github.com/iterative/dvc" "aiohttp<=3.10.5" --system
 
     - name: lint
       timeout-minutes: 10
@@ -53,6 +53,7 @@ jobs:
         OSS_ACCESS_KEY_ID: ${{ secrets.OSS_ACCESS_KEY_ID}}
         OSS_ACCESS_KEY_SECRET: ${{ secrets.OSS_ACCESS_KEY_SECRET}}
         OSS_ENDPOINT: ${{ secrets.OSS_ENDPOINT}}
+        OSS_TEST_BUCKET: ${{ secrets.OSS_TEST_BUCKET }}
       run: pytest -n=auto --cov-report=xml --cov-report=term
 
     - name: upload coverage report

@@ -5,8 +5,8 @@ import uuid
 from dvc.testing.cloud import Cloud
 from dvc.testing.path_info import CloudURLInfo
 
-TEST_OSS_ENDPOINT = "oss-us-east-1.aliyuncs.com"
-TEST_OSS_REPO_BUCKET = "dvc-test-github"
+TEST_OSS_ENDPOINT = os.getenv("OSS_ENDPOINT", "oss-us-east-1.aliyuncs.com")
+TEST_OSS_REPO_BUCKET = os.getenv("OSS_TEST_BUCKET", "dvc-oss-test-github")
 
 
 class OSS(Cloud, CloudURLInfo):
