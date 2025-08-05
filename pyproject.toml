@@ -35,7 +35,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
     "dvc-oss[tests]",
-    "mypy==1.17.0",
+    "mypy==1.17.1",
 ]
 tests = [
     "dvc[testing]",
